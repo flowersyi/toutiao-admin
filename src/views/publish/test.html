@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>关于文件对象</title>
+</head>
+
+<body>
+  <!-- file 类型的 input  multiple允许选中多个文件-->
+  <input type="file" id="file" multiple>
+  <img src="" id="img" width="200" alt="">
+  <button onclick="sendFile()">点击获取文件对象</button>
+
+  <!-- 一般的文件上传，都要把用户选的 file-input 的文件对象发送给后端 -->
+  <script>
+    function sendFile() {
+      const file = document.querySelector('#file')
+      const fileObj = file.files[0]
+
+      // 如果是文件图片，可以处理图片预览
+      const blob = window.URL.createObjectURL(fileObj)
+      // blob 数据可以直接复制给图片的 src 属性 展示
+      document.querySelector('#img').src = blob
+
+      // 然后把文件对象放到 FormData 中提交给后端
+      // const fq = new FormData()
+      // fq.append('字段名称',fileObj)
+    }
+  </script>
+</body>
+
+</html>
