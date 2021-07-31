@@ -46,8 +46,6 @@
 
 <script>
 import { getFans } from '@/api/article'
-import { getFollowersData } from '@/api/fans'
-
 // 2. 加载 echarts
 import EchartsDemo from './components/echarts-demo'
 import MapDemo from './components/map-demo'
@@ -84,11 +82,6 @@ export default {
     },
     errorHandler () {
       return true
-    },
-    activeEchart () {
-      getFollowersData().then(res => {
-        console.log(res)
-      })
     }
   }
 }
